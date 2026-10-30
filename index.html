@@ -140,11 +140,11 @@ faq:function(b){faq(+b.getAttribute('data-i'))},
 playDep:function(b){var f=d.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/OIbRlDA5nhQ?autoplay=1&cc_load_policy=0&iv_load_policy=3&rel=0&modestbranding=1&playsinline=1';f.title='Depoimento em vídeo de Ana Julia';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';f.allowFullscreen=true;f.referrerPolicy='strict-origin-when-cross-origin';f.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0;';b.replaceWith(f)}};
 d.addEventListener('click',function(e){var t=e.target.closest('[data-on]');if(t&&H[t.getAttribute('data-on')])H[t.getAttribute('data-on')](t,e)});
 var q=new URLSearchParams(location.search),ss=window.sessionStorage;
-['utm_source','utm_medium','utm_campaign','utm_term','gclid'].forEach(function(k){if(q.get(k))try{ss.setItem(k,q.get(k))}catch(x){}});
+['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid'].forEach(function(k){if(q.get(k))try{ss.setItem(k,q.get(k))}catch(x){}});
 function g(k){try{return q.get(k)||ss.getItem(k)||''}catch(x){return q.get(k)||''}}
 var LEADS_URL='COLE_AQUI_A_URL_DO_APPS_SCRIPT',WA_NUM='5519982000024';
 function lead(o){var wa=o.waRaw.replace(/\D/g,'');
-var body=new URLSearchParams({nome:o.nome,email:o.em,whatsapp:wa,formato:o.f||'',unidade:o.u||'digital',utm_source:g('utm_source'),utm_medium:g('utm_medium'),utm_campaign:g('utm_campaign'),utm_term:g('utm_term'),gclid:g('gclid'),pagina:location.href});
+var body=new URLSearchParams({nome:o.nome,email:o.em,whatsapp:wa,formato:o.f||'',unidade:o.u||'digital',utm_source:g('utm_source'),utm_medium:g('utm_medium'),utm_campaign:g('utm_campaign'),utm_term:g('utm_term'),utm_content:g('utm_content'),gclid:g('gclid'),fbclid:g('fbclid'),origem_form:o.origem,pagina:location.href});
 if(LEADS_URL.indexOf('/exec')>0)fetch(LEADS_URL,{method:'POST',mode:'no-cors',keepalive:true,body:body}).catch(function(){});
 (window.dataLayer=window.dataLayer||[]).push({event:'generate_lead',formato:o.f,unidade:o.u||'digital',form_location:o.origem,user_data:{email:o.em,phone_number:'+55'+wa}});
 var msg='Olá! Gostaria de agendar uma avaliação de Facelift com o Dr. Mário Ferraz.\n\n'+'Nome: '+o.nome+'\n'+'Atendimento: '+(o.f==='online'?'Consulta digital (por vídeo)':'Presencial, unidade '+o.u)+'\n'+'E-mail: '+o.em+'\n'+'WhatsApp: '+o.waRaw.trim();
