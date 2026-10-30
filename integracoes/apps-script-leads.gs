@@ -2,7 +2,7 @@
 // Cole em Extensões > Apps Script da planilha, salve e publique como App da Web
 // (Executar como: Eu · Quem pode acessar: Qualquer pessoa). A URL /exec vai no index.html.
 
-var EMAIL_AVISO = 'rastajohny091@gmail.com,caioanderle30@gmail.com';
+var EMAIL_AVISO = 'rastajohny091@gmail.com,caioanderle30@gmail.com,daviilucass2005@gmail.com';
 var PLANILHA_ID = '1WHLXae9VAv9EEz1RY4qBAcrRPhX9odDBnD19HjrFljo';
 var FUSO = 'America/Sao_Paulo';
 

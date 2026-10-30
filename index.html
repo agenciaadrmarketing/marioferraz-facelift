@@ -142,7 +142,7 @@ d.addEventListener('click',function(e){var t=e.target.closest('[data-on]');if(t&
 var q=new URLSearchParams(location.search),ss=window.sessionStorage;
 ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid'].forEach(function(k){if(q.get(k))try{ss.setItem(k,q.get(k))}catch(x){}});
 function g(k){try{return q.get(k)||ss.getItem(k)||''}catch(x){return q.get(k)||''}}
-var LEADS_URL='COLE_AQUI_A_URL_DO_APPS_SCRIPT',WA_NUM='5519982000024';
+var LEADS_URL='https://script.google.com/macros/s/AKfycbzxW0EKRPfNia0ajDHhS1FMlFL0hhw9Ix1NIX7ytg0D1L_1JvA8-ohH4GSvQkd0DOSq/exec',WA_NUM='5519982000024';
 function lead(o){var wa=o.waRaw.replace(/\D/g,'');
 var body=new URLSearchParams({nome:o.nome,email:o.em,whatsapp:wa,formato:o.f||'',unidade:o.u||'digital',utm_source:g('utm_source'),utm_medium:g('utm_medium'),utm_campaign:g('utm_campaign'),utm_term:g('utm_term'),utm_content:g('utm_content'),gclid:g('gclid'),fbclid:g('fbclid'),origem_form:o.origem,pagina:location.href});
 if(LEADS_URL.indexOf('/exec')>0)fetch(LEADS_URL,{method:'POST',mode:'no-cors',keepalive:true,body:body}).catch(function(){});
