@@ -41,8 +41,9 @@ function salvarLead(d) {
   try {
     var sh = SpreadsheetApp.openById(PLANILHA_ID).getSheets()[0];
 
-    if (sh.getLastRow() === 0) {
-      sh.appendRow(COLUNAS);
+    // Cria ou corrige o cabeçalho se a linha 1 não estiver no padrão.
+    if (sh.getLastRow() === 0 || String(sh.getRange(1, 1).getValue()) !== COLUNAS[0] || String(sh.getRange(1, 7).getValue()) !== COLUNAS[6]) {
+      sh.getRange(1, 1, 1, COLUNAS.length).setValues([COLUNAS]);
       sh.getRange(1, 1, 1, COLUNAS.length)
         .setFontWeight('bold').setBackground('#2b2620').setFontColor('#ffffff');
       sh.setFrozenRows(1);
